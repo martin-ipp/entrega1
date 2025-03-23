@@ -22,11 +22,11 @@ answers = [
 # Índice de la respuesta correcta para cada pregunta
 correct_answers_index = [1, 2, 0, 3, 1]
 
-# Combinar preguntas, respuestas y respuestas correctas en una sola lista de tuplas
+# Combinar preguntas, respuestas y respuestas correctas en una lista de tuplas
 question_bank = list(zip(questions, answers, correct_answers_index))
 
-# Seleccionar 3 preguntas aleatorias sin usar índices
-questions_to_ask = random.choices(question_bank, k=3)
+# Seleccionar 3 preguntas aleatorias sin repetirse
+questions_to_ask = random.sample(question_bank, k=3)
 
 # Inicializar puntaje
 score = 0
@@ -71,4 +71,5 @@ for question, answer_choices, correct_index in questions_to_ask:
     print()
 
 # Mostrar el puntaje final
+score =0 if score<0 else score
 print(f"Tu puntaje final es: {score:.1f} puntos")
